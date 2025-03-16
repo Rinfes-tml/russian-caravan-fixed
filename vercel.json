@@ -1,4 +1,24 @@
 {
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/next",
+      "config": {
+        "installCommand": "npm install --force",
+        "buildCommand": "npm run build"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ],
+  "env": {
+    "NODE_ENV": "production"
+  },
   "headers": [
     {
       "source": "/(.*)",
@@ -22,7 +42,6 @@
       ]
     }
   ],
-  "buildCommand": "npm run build",
   "outputDirectory": ".next",
   "framework": "nextjs",
   "regions": ["fra1"]
